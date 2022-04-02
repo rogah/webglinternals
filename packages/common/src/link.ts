@@ -1,3 +1,6 @@
+const DEFAULT_STRIDE: number = 0;
+const DEFAULT_OFFSET: number = 0;
+
 /**
  * @typedef LinkOptions
  * @type {object}
@@ -15,16 +18,17 @@ export interface LinkOptions {
   program: WebGLProgram;
   buffer: WebGLBuffer;
   gpuVariable: string;
-  bufferType: GLenum;
   dimensions: number;
-  dataType: GLenum;
-  normalized: boolean;
-  stride: number;
-  offset: number;
+  bufferType?: GLenum;
+  dataType?: GLenum;
+  normalized?: boolean;
+  stride?: number;
+  offset?: number;
 }
 
 /**
  * Link GPU and CPU
+ * @param {WebGLRenderingContext} gl
  * @param {LinkOptions} options
  * @returns {GLint}
  */
@@ -34,8 +38,8 @@ export function linkGPUAndCPU(
     program,
     buffer,
     gpuVariable,
-    bufferType,
     dimensions,
+    bufferType,
     dataType,
     normalized,
     stride,
@@ -45,14 +49,14 @@ export function linkGPUAndCPU(
   const variable = gl.getAttribLocation(program, gpuVariable);
 
   gl.enableVertexAttribArray(variable);
-  gl.bindBuffer(bufferType, buffer);
+  gl.bindBuffer(bufferType || gl.ARRAY_BUFFER, buffer);
   gl.vertexAttribPointer(
     variable,
     dimensions,
-    dataType,
-    normalized,
-    stride,
-    offset
+    dataType || gl.FLOAT,
+    !!normalized,
+    stride || DEFAULT_STRIDE,
+    offset || DEFAULT_OFFSET
   );
 
   return variable;
