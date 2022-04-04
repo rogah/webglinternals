@@ -7,7 +7,10 @@ import {
   linkGPUAndCPU,
 } from '@webglinternals/primitives';
 
-import { bindDragAndDropEvents } from '@webglinternals/dom-events';
+import {
+  bindDragAndDropEvents,
+  unbindDragAndDropEvents,
+} from '@webglinternals/dom-events';
 
 import { vertexShader, fragmentShader } from './shaders';
 
@@ -60,3 +63,11 @@ bindDragAndDropEvents(gl, (start, end) => {
   // Step 5: render rectangle
   gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 2);
 });
+
+addEventListener(
+  'beforeunload',
+  () => {
+    unbindDragAndDropEvents();
+  },
+  { capture: true }
+);
