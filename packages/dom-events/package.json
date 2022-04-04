@@ -1,6 +1,5 @@
 {
-    "name": "@webglinternals/common",
-    "private": true,
+    "name": "@webglinternals/dom-events",
     "version": "1.0.0",
     "main": "index.ts",
     "license": "MIT",
@@ -8,6 +7,6 @@
         "build": "tsc"
     },
     "devDependencies": {
-        "typescript": "^4.5.4"
+        "typescript": "^4.6.3"
     }
 }

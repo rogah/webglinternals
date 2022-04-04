@@ -28,12 +28,12 @@ export interface LinkOptions {
 
 /**
  * Link GPU and CPU
- * @param {WebGLRenderingContext} gl
+ * @param {WebGL2RenderingContext} gl
  * @param {LinkOptions} options
  * @returns {GLint}
  */
 export function linkGPUAndCPU(
-  gl: WebGLRenderingContext,
+  gl: WebGL2RenderingContext,
   {
     program,
     buffer,

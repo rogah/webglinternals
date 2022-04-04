@@ -1,0 +1,13 @@
+{
+    "name": "@webglinternals/primitives",
+    "private": true,
+    "version": "1.0.0",
+    "main": "index.ts",
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "typescript": "^4.5.4"
+    }
+}

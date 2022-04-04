@@ -5,7 +5,7 @@ import {
   getProgram,
   createAndBindBuffer,
   linkGPUAndCPU,
-} from '@webglinternals/common';
+} from '@webglinternals/primitives';
 
 import { vertexShader, fragmentShader } from './shaders';
 
@@ -39,10 +39,10 @@ linkGPUAndCPU(gl, {
   gpuVariable: 'position',
   bufferType: gl.ARRAY_BUFFER,
   dimensions: 2,
-  dataType: gl.FLOAT,
-  normalized: false,
-  stride: 0,
-  offset: 0,
+  // dataType: gl.FLOAT,
+  // normalized: false,
+  // stride: 0,
+  // offset: 0,
 });
 
 // Step 5: render rectangle

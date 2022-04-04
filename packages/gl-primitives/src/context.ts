@@ -1,9 +1,9 @@
 /**
  * Get WebGL context
  * @param {HTMLCanvasElement} canvas
- * @returns @type {WebGLRenderingContext}
+ * @returns @type {WebGL2RenderingContext}
  */
-export function getContext(canvas: HTMLCanvasElement): WebGLRenderingContext {
+export function getContext(canvas: HTMLCanvasElement): WebGL2RenderingContext {
   const gl = canvas.getContext('webgl2');
   if (!gl) {
     throw new Error('Not able to get WebGL context');
