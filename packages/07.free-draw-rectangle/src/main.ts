@@ -24,7 +24,7 @@ const gl = getContext(canvas);
 // Step 2: create program from shaders
 const program = getProgram(gl, vertexShader, fragmentShader);
 
-bindDragAndDropEvents(gl, (start, end) => {
+bindDragAndDropEvents(gl.canvas, (start, end) => {
   // Step 3: create buffers
   const { x: startX, y: startY } = toGPUCoordinates(gl.canvas, start);
   const { x: endX, y: endY } = toGPUCoordinates(gl.canvas, end);

@@ -10,11 +10,9 @@ interface OnUpdateCoodinates {
 let unbindAll: UnbindEventListener | null = null;
 
 export function bindDragAndDropEvents(
-  gl: WebGL2RenderingContext,
+  canvas: HTMLCanvasElement,
   onUpdateCoordinates: OnUpdateCoodinates
 ) {
-  const canvas = gl.canvas;
-
   const start: Point = { x: 0, y: 0 };
   const end: Point = { x: 0, y: 0 };
 
