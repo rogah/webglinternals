@@ -5,6 +5,7 @@ import {
   getProgram,
   createAndBindBuffer,
   linkGPUAndCPU,
+  toGPUCoordinates,
 } from '@webglinternals/primitives';
 
 import {
@@ -25,19 +26,22 @@ const program = getProgram(gl, vertexShader, fragmentShader);
 
 bindDragAndDropEvents(gl, (start, end) => {
   // Step 3: create buffers
+  const { x: startX, y: startY } = toGPUCoordinates(gl.canvas, start);
+  const { x: endX, y: endY } = toGPUCoordinates(gl.canvas, end);
+
   const vertices = [
-    start.x,
-    start.y,
-    end.x,
-    start.y,
-    start.x,
-    end.y,
-    start.x,
-    end.y,
-    end.x,
-    end.y,
-    end.x,
-    start.y,
+    startX,
+    startY,
+    endX,
+    startY,
+    startX,
+    endY,
+    startX,
+    endY,
+    endX,
+    endY,
+    endX,
+    startY,
   ];
 
   const buffer = createAndBindBuffer(

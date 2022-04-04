@@ -1,13 +1,11 @@
 {
-    "name": "@webglinternals/dom-events",
+    "name": "@webglinternals/types",
+    "private": true,
     "version": "1.0.0",
     "main": "index.ts",
     "license": "MIT",
     "scripts": {
         "build": "tsc"
-    },
-    "dependencies": {
-        "@webglinternals/types": "1.0.0"
     },
     "devDependencies": {
         "typescript": "^4.6.3"
