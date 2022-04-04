@@ -1,9 +1,10 @@
 import { Point } from '@webglinternals/types';
 
 export function toGPUCoordinates(
-  canvas: HTMLCanvasElement,
+  gl: WebGL2RenderingContext,
   point: Point
 ): Point {
+  const canvas = gl.canvas;
   const width = canvas.width;
   const height = canvas.height;
 
