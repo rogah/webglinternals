@@ -5,6 +5,7 @@ import {
   getProgram,
   createAndBindBuffer,
   linkGPUAndCPU,
+  getCircleVertices,
 } from '@webglinternals/primitives';
 
 import { vertexShader, fragmentShader } from './shaders';
@@ -19,25 +20,7 @@ const gl = getContext(canvas);
 const program = getProgram(gl, vertexShader, fragmentShader);
 
 // Step 3: create buffers
-const getCircleVertices = () => {
-  const centerX = 0.0;
-  const centerY = 0.0;
-  const radiusX = 0.4;
-  const radiusY = (radiusX / gl.canvas.height) * gl.canvas.width;
-  const numberOfPoints = 300;
-
-  const vertices = [];
-
-  for (let index = 0; index < numberOfPoints; index++) {
-    const circumference = 2 * Math.PI * (index / numberOfPoints);
-    const x = centerX + radiusX * Math.cos(circumference);
-    const y = centerY + radiusY * Math.sin(circumference);
-    vertices.push(x, y);
-  }
-
-  return vertices;
-};
-const vertices = getCircleVertices();
+const vertices = getCircleVertices(gl, 0.0, 0.0, 0.4);
 
 const buffer = createAndBindBuffer(
   gl,
