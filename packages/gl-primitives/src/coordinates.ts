@@ -13,3 +13,16 @@ export function toGPUCoordinates(
     y: -1.0 + (point.y / height) * 2,
   };
 }
+
+export function gpuToZeroToTwoCoordinates(start: Point, end: Point): Point[] {
+  return [
+    {
+      x: 1.0 + start.x,
+      y: 1.0 + start.y,
+    },
+    {
+      x: 1.0 + end.x,
+      y: 1.0 + end.y,
+    },
+  ];
+}
