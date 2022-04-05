@@ -18,7 +18,7 @@ const gl = getContext(canvas);
 // Step 2: create program from shaders
 const program = getProgram(gl, vertexShader, fragmentShader);
 
-const drawGrids = (grids: number): void => {
+const drawGrids = (grids: number, isBlackAndWhite: boolean = false): void => {
   let startX = -1.0;
   let startY = -1.0;
 
@@ -29,6 +29,11 @@ const drawGrids = (grids: number): void => {
 
   let verticies: number[] = [];
   let colors: number[] = [];
+
+  const whiteColor = [1.0, 1.0, 1.0];
+  const blackColor = [0.0, 0.0, 0.0];
+
+  let toggle = false;
 
   for (let i = 0; i < grids; i++) {
     for (let j = 0; j < grids; j++) {
@@ -52,7 +57,11 @@ const drawGrids = (grids: number): void => {
       startX = endX;
       endX += step;
 
-      const color = [Math.random(), Math.random(), Math.random()];
+      const color = isBlackAndWhite
+        ? toggle
+          ? whiteColor
+          : blackColor
+        : [Math.random(), Math.random(), Math.random()];
       colors = colors
         .concat(color)
         .concat(color)
@@ -60,6 +69,11 @@ const drawGrids = (grids: number): void => {
         .concat(color)
         .concat(color)
         .concat(color);
+
+      toggle = !toggle;
+    }
+    if (grids % 2 === 0) {
+      toggle = !toggle;
     }
     startX = -1.0;
     startY = endY;
@@ -120,7 +134,7 @@ gridInput.addEventListener('input', (e) => {
     return;
   }
 
-  drawGrids(grids);
+  drawGrids(grids, true);
 });
 
-drawGrids(3);
+drawGrids(3, true);
