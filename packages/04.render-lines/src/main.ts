@@ -5,7 +5,7 @@ import {
   getProgram,
   createAndBindBuffer,
   linkGPUAndCPU,
-} from '@webglinternals/common';
+} from '@webglinternals/primitives';
 
 import { vertexShader, fragmentShader } from './shaders';
 

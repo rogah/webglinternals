@@ -1,0 +1,18 @@
+{
+    "name": "@webglinternals/07.free-draw-rectangle",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "dependecies": {
+        "@webglinternals/primitives": "1.0.0",
+        "@webglinternals/dom-events": "1.0.0"
+    },
+    "devDependencies": {
+        "typescript": "^4.5.4",
+        "vite": "^2.9.0"
+    }
+}

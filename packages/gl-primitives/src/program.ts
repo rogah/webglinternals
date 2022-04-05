@@ -2,13 +2,13 @@ import { getShader } from './shader';
 
 /**
  * Get WebGL program
- * @param {WebGLRenderingContext} gl
+ * @param {WebGL2RenderingContext} gl
  * @param {string} vertexShaderSource
  * @param {string} fragmentShaderSource
  * @returns @type {WebGLProgram}
  */
 export function getProgram(
-  gl: WebGLRenderingContext,
+  gl: WebGL2RenderingContext,
   vertexShaderSource: string,
   fragmentShaderSource: string
 ): WebGLProgram {

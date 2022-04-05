@@ -8,7 +8,7 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@webglinternals/common": "1.0.0"
+        "@webglinternals/primitives": "1.0.0"
     },
     "devDependencies": {
         "typescript": "^4.5.4",
